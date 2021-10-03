@@ -1,0 +1,43 @@
+<div fxLayout="column">
+    <div fxLayout="row"  fxLayoutAlign="center">
+        <div *ngIf="!face.isIdentified">
+            <h1>We weren't sure about this one  ({{currentFaceIndex + 1}}/{{faceGroupLength + 1}})</h1>
+        </div>
+        <div *ngIf="face.isIdentified">
+            <h1>We're pretty sure this is {{face.firstName}} {{face.lastName}}. Please confirm.  ({{currentFaceIndex + 1}}/{{faceGroupLength + 1}})</h1>
+        </div>
+        <h1></h1>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="center">
+        <div>
+            <img src="{{face.pictureUrl}}">
+        </div>
+    </div>
+    <br/>
+    <div fxLayout="row" fxLayoutAlign="space-evenly center">
+            <button mat-fab color="primary" (click)="back()"><mat-icon>west</mat-icon></button>
+            <button mat-fab color="primary" (click)="next()"><mat-icon>east</mat-icon></button>
+    </div>
+    
+        <div fxLayout="row"  fxLayoutAlign="center">
+            <div class="example-form">
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>First Name</mat-label>
+                  <input matInput [(ngModel)]="firstName" [name]="firstName">
+                </mat-form-field>
+                
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput [(ngModel)]="lastName" [name]="lastName">
+                  </mat-form-field>
+                </div>
+        </div>
+    <br/>
+        <div fxLayout="row"  fxLayoutAlign="center">
+            
+            <button mat-raised-button color="warn">Don't Know</button>
+            <button mat-raised-button color="green" (click)="identify()">Identify</button>
+
+        </div>
+</div>

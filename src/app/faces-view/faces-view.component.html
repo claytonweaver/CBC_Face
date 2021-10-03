@@ -1,0 +1,38 @@
+<div *ngIf="currentFace">
+
+<app-face-view 
+[face]="currentFace" 
+[currentFaceIndex]="currentFaceIndex" 
+[faceGroupLength]="faceGroupLength" 
+(faceIdentified)="identify($event)"
+(goBack)="goBack($event)"
+(goNext)="goNext($event)"
+>
+</app-face-view>  
+
+<br/>
+<p>Face Group</p>
+<p *ngFor="let f of faceGroup.faces">
+    
+    {{f.firstName}}
+    {{f.lastName}}
+    <br/>
+    Is Identified: {{f.isIdentified}}
+    <br/>
+    Is Confirmed: {{f.userConfirmed}}
+</p>
+<br/>
+<p>
+    Current Face:
+</p>
+<p>
+    {{currentFace.firstName}} 
+    {{currentFace.lastName}}
+</p>
+<p>
+    Is Identified: {{currentFace.isIdentified}}
+    Is Confirmed: {{currentFace.userConfirmed}}
+</p>
+
+
+</div>

@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "CbcFace"
+    }
+  },
+  "defaultProject": "CbcFace",
+  "cli": {
+    "analytics": "f1943d9a-58e0-48f2-8da8-809dc833dec8"
+  }
 }
