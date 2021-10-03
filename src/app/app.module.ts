@@ -9,6 +9,8 @@ import { FormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatChipsModule} from '@angular/material/chips';
 
 FlexLayoutModule 
 
@@ -25,7 +27,9 @@ FlexLayoutModule
     FormsModule,
     MatButtonModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    MatSnackBarModule,
+    MatChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

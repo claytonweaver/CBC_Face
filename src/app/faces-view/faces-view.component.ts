@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { Face } from '../models/face';
 import { FaceGroup } from '../models/face-group';
 import { User } from '../models/user';
@@ -10,6 +10,8 @@ import { utils } from '../services/utils';
   styleUrls: ['./faces-view.component.css']
 })
 export class FacesViewComponent implements OnInit {
+
+  
 
   @Input() faceGroup: FaceGroup;
   @Input() user: User;

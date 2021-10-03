@@ -35,9 +35,16 @@
         </div>
     <br/>
         <div fxLayout="row"  fxLayoutAlign="center">
-            
             <button mat-raised-button color="warn">Don't Know</button>
             <button mat-raised-button color="green" (click)="identify()">Identify</button>
-
+        </div>
+        
+        <br/>
+          <div fxLayout="row"  fxLayoutAlign="center" *ngIf="showEmptyFieldsError">
+            <mat-chip-list>
+                <mat-chip class="chip">
+                    Must enter a name to identify
+                  </mat-chip>
+            </mat-chip-list>
         </div>
 </div>

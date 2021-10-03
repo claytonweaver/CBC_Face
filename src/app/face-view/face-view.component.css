@@ -3,6 +3,15 @@
     color: white;
  }
 
+ .chip{
+  background-color: red;
+  color: white;
+  font-size: larger;
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
 
 .example-form {
     min-width: 150px;
@@ -12,4 +21,8 @@
   
   .example-full-width {
     width: 100%;
+  }
+
+  .blue-snackbar {
+    background: #2196F3;
   }
