@@ -50,12 +50,18 @@ export class FaceViewComponent implements OnInit {
 
   next(){
     this.showEmptyFieldsError = false;
-    this.goBack.emit(this.currentFaceIndex + 1);
+    if(this.currentFaceIndex == this.faceGroupLength){
+      return;
+    }
+    this.goNext.emit(this.currentFaceIndex + 1);
   }
 
   back(){
+    if(this.currentFaceIndex == 0){
+      return;
+    }
     this.showEmptyFieldsError = false;
-    this.goNext.emit(this.currentFaceIndex - 1);
+    this.goBack.emit(this.currentFaceIndex - 1);
   }
 
   ngOnInit(): void {
