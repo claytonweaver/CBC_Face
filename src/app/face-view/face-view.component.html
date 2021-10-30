@@ -3,8 +3,11 @@
         <div *ngIf="!face.isIdentified">
             <h1>We weren't sure about this one  ({{currentFaceIndex + 1}}/{{faceGroupLength + 1}})</h1>
         </div>
-        <div *ngIf="face.isIdentified">
+        <div *ngIf="face.isIdentified && !face.userConfirmed">
             <h1>We're pretty sure this is {{face.firstName}} {{face.lastName}}. Please confirm.  ({{currentFaceIndex + 1}}/{{faceGroupLength + 1}})</h1>
+        </div>
+        <div *ngIf="face.userConfirmed">
+            <h1>You've confirmed that this is {{face.firstName}} {{face.lastName}}. ({{currentFaceIndex + 1}}/{{faceGroupLength + 1}})</h1>
         </div>
         <h1></h1>
     </div>
@@ -35,7 +38,7 @@
         </div>
     <br/>
         <div fxLayout="row"  fxLayoutAlign="center">
-            <button mat-raised-button color="warn">Don't Know</button>
+            <button mat-raised-button color="warn" (click)="unsure()">Don't Know</button>
             <button mat-raised-button color="green" (click)="identify()">Identify</button>
         </div>
         

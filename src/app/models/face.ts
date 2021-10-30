@@ -9,4 +9,5 @@ export class Face {
     pictureUrl: string;
     userConfirmed: boolean;
     confirmedBy?: User;
+    userUnsure?: boolean;
 }

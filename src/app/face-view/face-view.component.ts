@@ -48,6 +48,11 @@ export class FaceViewComponent implements OnInit {
     }    
   }
 
+  unsure(){
+    this.face.userUnsure = true;
+    this.next();
+  }
+
   next(){
     this.showEmptyFieldsError = false;
     if(this.currentFaceIndex == this.faceGroupLength){

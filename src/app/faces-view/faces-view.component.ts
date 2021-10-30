@@ -18,6 +18,7 @@ export class FacesViewComponent implements OnInit {
   currentFace: Face;
   currentFaceIndex: number = 0;
   faceGroupLength: number = 0;
+  showFinsihedButton: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
@@ -39,8 +40,17 @@ export class FacesViewComponent implements OnInit {
     faceIdentified.userConfirmed = true;
     faceIdentified.confirmedBy = this.user;
     faceIdentified.isIdentified = true;
-    this.currentFaceIndex++;
+    
+    this.showFinsihedButton = this.checkForIsFinished();
+    
+    if(!(this.faceGroupLength == this.currentFaceIndex)){
+      this.currentFaceIndex++;
+    }
     this.setCurrentFace();
+  }
+
+  unsure(){
+    
   }
 
   goBack(index){
@@ -51,5 +61,9 @@ export class FacesViewComponent implements OnInit {
   goNext(index){
     this.currentFaceIndex = index;
     this.setCurrentFace();
+  }
+
+  checkForIsFinished(){
+    return !this.faceGroup.faces.some(face => !face.userConfirmed);
   }
 }
