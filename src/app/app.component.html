@@ -1,5 +1,9 @@
 <app-header [email]="email" [serviceDate]="serviceDate"></app-header>
-
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
 <app-welcome-screen (emailEntered)="emailEntered($event)" *ngIf="!email"></app-welcome-screen>
 <app-service-select (serviceDateSelected)="serviceDateSelected($event)" *ngIf="!serviceDate && email"></app-service-select>

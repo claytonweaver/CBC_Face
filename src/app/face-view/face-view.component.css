@@ -1,7 +1,13 @@
 .mat-raised-button.mat-green{
     background-color: green;
     color: white;
+    margin-left: 5px;
  }
+
+ .mat-raised-button{
+   margin-right: 5px;
+ }
+
 
  .chip{
   background-color: red;
