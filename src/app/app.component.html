@@ -1,3 +1,6 @@
+<app-header [email]="email" [serviceDate]="serviceDate"></app-header>
+
+
 <app-welcome-screen (emailEntered)="emailEntered($event)" *ngIf="!email"></app-welcome-screen>
-<app-service-select (serviceSelected)="serviceSelected($event)" *ngIf="!serviceDate && email"></app-service-select>
+<app-service-select (serviceDateSelected)="serviceDateSelected($event)" *ngIf="!serviceDate && email"></app-service-select>
 <app-faces-view *ngIf="serviceDate" [faceGroup]="faceGroup"></app-faces-view>

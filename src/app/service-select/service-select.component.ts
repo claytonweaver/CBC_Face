@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-service-select',
@@ -6,12 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./service-select.component.css']
 })
 export class ServiceSelectComponent implements OnInit {
-
   serviceDate: Date;
+  @Output() serviceDateSelected: EventEmitter<Date> = new EventEmitter<Date>()
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  enter(){
+    this.serviceDateSelected.emit(this.serviceDate);
+  }
 }

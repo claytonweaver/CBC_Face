@@ -20,6 +20,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WelcomeScreenComponent } from './welcome-screen/welcome-screen.component';
 import { EmailInputComponent } from './email-input/email-input.component';
+import { HeaderComponent } from './header/header.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 FlexLayoutModule 
 
@@ -30,7 +32,8 @@ FlexLayoutModule
     FacesViewComponent,
     ServiceSelectComponent,
     WelcomeScreenComponent,
-    EmailInputComponent
+    EmailInputComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,8 @@ FlexLayoutModule
     MatDatepickerModule,
     MatFormFieldModule,
     MatNativeDateModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

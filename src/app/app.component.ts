@@ -61,7 +61,7 @@ export class AppComponent {
     this.email = email;
   }
 
-  serviceSelected(serviceDate: Date){
+  serviceDateSelected(serviceDate: Date){
     this.serviceDate = serviceDate;
   }
 }
