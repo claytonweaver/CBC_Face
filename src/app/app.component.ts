@@ -1,3 +1,4 @@
+import { Input } from '@angular/core';
 import { Component } from '@angular/core';
 import { FaceGroup } from './models/face-group';
 
@@ -7,7 +8,9 @@ import { FaceGroup } from './models/face-group';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'CbcFace';
+  email: string;
+  serviceDate: Date; 
+
   faceGroup: FaceGroup = {
     faces: [
       {
@@ -54,7 +57,11 @@ export class AppComponent {
     date: new Date()
   }
 
-  serviceSelected = false;
+  emailEntered(email: string){
+    this.email = email;
+  }
 
-  
+  serviceSelected(serviceDate: Date){
+    this.serviceDate = serviceDate;
+  }
 }
