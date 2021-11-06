@@ -1,26 +1,43 @@
-import { HttpClient } from "@angular/common/http";
-import { map } from 'rxjs/operators';
+import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { ServiceDates } from "./models/service-dates";
+import { Injectable, isDevMode } from '@angular/core';
+import { Attendance } from "./models/attendance";
+import { environment } from "src/environments/environment";
 
+@Injectable({
+  providedIn: 'root',
+})
 export class FaceService{
     
-    rootPath = "https://attendanceapi.azurewebsites.net/api/";
-    path = "https://attendanceapi.azurewebsites.net/api/ImageMappingController?date=03/27/2009&serviceName=MorningWorship&code=7tj28zqVXCL3wful5rvhU8Vu1NiqREhwaxxhsoRLvixAzUVDIaUM/g==";
-    token = process.env.ApiKey;
-    constructor(private httpClient: HttpClient){
+    rootPath = "https://attendanceapi.azurewebsites.net/api/ServicesController";
+    token = "environment.apiKey";
+
+    constructor(public httpClient: HttpClient){
     }
 
-    getFaceGroup(date: string, serviceName: string){
-        const faceGroup = this.httpClient.get(`${this.rootPath}/ImageMappingController?date=${date}`).pipe(map((response) => response));
+    getService(date: string, serviceName: string){
+        console.log(this.token);
+        
+        const paramOptions = `date=${date}&serviceName=${serviceName}&code=${this.token}`;
+        const params = new HttpParams({fromString: paramOptions});
+        const headers = new HttpHeaders({
+            'Access-Control-Allow-Origin': 'http://localhost:4200',
+            'Access-Control-Allow-Credentials': 'true',
+            'Accept': '*/*',
+
+        });
+        return this.httpClient.request<Attendance>( 'GET', this.rootPath, {responseType: 'json', headers: headers, params: params, }).toPromise();
     }
 
-    getServiceDates(){
-        const serviceDates = this.httpClient.get("http").pipe(map((response) => response));
-    }
-    
-    getFaceServiceToken(){
+    getServiceDates(count: number){
+        const paramOptions = `count=${count}&code=${this.token}`;
+        const params = new HttpParams({fromString: paramOptions});
+        const headers = new HttpHeaders({
+            'Access-Control-Allow-Origin': 'http://localhost:4200',
+            'Access-Control-Allow-Credentials': 'true',
+            'Accept': '*/*',
 
+        });
+        return this.httpClient.request<ServiceDates>( 'GET', this.rootPath, {responseType: 'json', headers: headers, params: params, }).toPromise();
     }
-    
-
 }

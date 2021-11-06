@@ -1,11 +1,8 @@
 import { FaceLocation } from "./face-location";
+import { FaceRectangle } from "./face-rectangle";
+import { IdentificationStatus } from "./identification-status";
+import { Submission } from "./submission";
 
 export class Attendee{
-    faceIds: string[];
-    faceLocation: FaceLocation;
-    identificationConfidence: number;
-    identificationStatus: string;
-    imageName: string;
-    name: string;
-    personId: string;
+    constructor(public adGroupId: string, public faceId: string, public faceLocation: FaceRectangle, public identificationConfidence: number, public identificationStatus: IdentificationStatus, public imageName: string, public imageUrl: string, public name: string, public personId: string, public userDetails: string, public submission: Submission){}
 }

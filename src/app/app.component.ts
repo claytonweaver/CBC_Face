@@ -1,6 +1,7 @@
 import { Input } from '@angular/core';
 import { Component } from '@angular/core';
 import { FaceGroup } from './models/face-group';
+import { FaceService } from './services/face-service/face-service';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,10 @@ import { FaceGroup } from './models/face-group';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  constructor(){
+
+  }
   email: string;
   serviceDate: Date; 
 
@@ -65,7 +70,6 @@ export class AppComponent {
     this.serviceDate = serviceDate;
   }
 
-  ngOnInit(){
-    console.log(process.env.ApiKey[0])
+  ngOnInit(){ 
   }
 }

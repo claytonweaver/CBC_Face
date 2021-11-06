@@ -22,6 +22,7 @@ import { WelcomeScreenComponent } from './welcome-screen/welcome-screen.componen
 import { EmailInputComponent } from './email-input/email-input.component';
 import { HeaderComponent } from './header/header.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {HttpClientModule} from '@angular/common/http';
 
 FlexLayoutModule 
 
@@ -49,7 +50,8 @@ FlexLayoutModule
     MatFormFieldModule,
     MatNativeDateModule,
     BrowserAnimationsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
