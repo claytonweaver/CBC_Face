@@ -78,7 +78,5 @@ export class FaceViewComponent implements OnInit {
   ngOnChanges(){
     this.firstName = this.face.firstName;
     this.lastName = this.face.lastName;
-    
   }
-
 }

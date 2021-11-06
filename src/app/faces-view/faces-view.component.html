@@ -15,33 +15,4 @@
         <button *ngIf="showFinsihedButton" mat-raised-button color="primary">Submit</button>
     </div>
 </div>
-
-
-
-<!-- for testing, delete when done -->
-<br/>
-<p>Face Group</p>
-<p *ngFor="let f of faceGroup.faces">
-    
-    {{f.firstName}}
-    {{f.lastName}}
-    <br/>
-    Is Identified: {{f.isIdentified}}
-    <br/>
-    Is Confirmed: {{f.userConfirmed}}
-</p>
-<br/>
-<p>
-    Current Face:
-</p>
-<p>
-    {{currentFace.firstName}} 
-    {{currentFace.lastName}}
-</p>
-<p>
-    Is Identified: {{currentFace.isIdentified}}
-    Is Confirmed: {{currentFace.userConfirmed}}
-</p>
-
-
 </div>

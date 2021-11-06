@@ -1,2 +1,2 @@
-<div id="d"><app-faces-view [faceGroup]="faceGroup"></app-faces-view>
-</div>
+<app-service-select></app-service-select>
+<app-faces-view *ngIf="serviceSelected" [faceGroup]="faceGroup"></app-faces-view>

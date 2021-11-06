@@ -53,4 +53,8 @@ export class AppComponent {
     ],
     date: new Date()
   }
+
+  serviceSelected = false;
+
+  
 }

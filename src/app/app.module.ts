@@ -11,6 +11,13 @@ import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatChipsModule} from '@angular/material/chips';
+import { ServiceSelectComponent } from './service-select/service-select.component';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 FlexLayoutModule 
 
@@ -18,7 +25,8 @@ FlexLayoutModule
   declarations: [
     AppComponent,
     FaceViewComponent,
-    FacesViewComponent
+    FacesViewComponent,
+    ServiceSelectComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +37,11 @@ FlexLayoutModule
     MatInputModule,
     MatIconModule,
     MatSnackBarModule,
-    MatChipsModule
+    MatChipsModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
