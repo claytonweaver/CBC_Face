@@ -64,4 +64,8 @@ export class AppComponent {
   serviceDateSelected(serviceDate: Date){
     this.serviceDate = serviceDate;
   }
+
+  ngOnInit(){
+    console.log(process.env.ApiKey[0])
+  }
 }
