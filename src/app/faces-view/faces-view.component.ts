@@ -2,7 +2,8 @@ import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { Face } from '../models/face';
 import { FaceGroup } from '../models/face-group';
 import { User } from '../models/user';
-import { utils } from '../services/utils';
+import { Attendance } from '../services/face-service/models/attendance';
+import { Utils } from '../services/utils';
 
 @Component({
   selector: 'app-faces-view',
@@ -10,11 +11,9 @@ import { utils } from '../services/utils';
   styleUrls: ['./faces-view.component.css']
 })
 export class FacesViewComponent implements OnInit {
-
-  
-
   @Input() faceGroup: FaceGroup;
   @Input() user: User;
+  @Input() attendance: Attendance;
   currentFace: Face;
   currentFaceIndex: number = 0;
   faceGroupLength: number = 0;
@@ -40,9 +39,9 @@ export class FacesViewComponent implements OnInit {
     faceIdentified.userConfirmed = true;
     faceIdentified.confirmedBy = this.user;
     faceIdentified.isIdentified = true;
-    
+
     this.showFinsihedButton = this.checkForIsFinished();
-    
+
     if(!(this.faceGroupLength == this.currentFaceIndex)){
       this.currentFaceIndex++;
     }
@@ -50,7 +49,7 @@ export class FacesViewComponent implements OnInit {
   }
 
   unsure(){
-    
+
   }
 
   goBack(index){

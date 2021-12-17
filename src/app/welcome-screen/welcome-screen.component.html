@@ -2,21 +2,15 @@
     <div fxLayout="row" fxLayoutAlign="center center">
         <h1>Welcome to the CBC check in app.</h1>
     </div>
-    <br/>
-    <br/>
     <div fxLayout="row" fxLayoutAlign="center center">
-        <h2>Please enter your email to get started so we can record who verified this service.</h2>
+        <h2>Please enter your email and password to get started.</h2>
     </div>
     <br/>
     <br/>
-    <br/>
-    <br/>
     <div fxLayout="row" fxLayoutAlign="center center">
-        <app-email-input (enteredEmail)="enterEmail($event)"></app-email-input>
+        <app-credential-input (enteredCredentials)="credentialsEntered($event)"></app-credential-input>
     </div>
 </div>
 
-<br/>
-<br/>
 <br/>
 <br/>

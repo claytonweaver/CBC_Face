@@ -3,11 +3,11 @@
     max-width: 300px;
     width: 100%;
   }
-  
+
   .example-full-width {
     width: 100%;
   }
-  
+
   .mat-raised-button.mat-green{
     background-color: #673ab7;
     color: white;
@@ -16,3 +16,8 @@
     margin-left: 10px;
     margin-bottom: 10px;
  }
+
+ ::selection {
+  background: #673ab7;
+  color: white;
+}

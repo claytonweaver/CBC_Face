@@ -1,14 +1,17 @@
 <div fxLayout="column">
     <div fxLayout="row"  fxLayoutAlign="center">
-        <div *ngIf="!face.isIdentified">
-            <h1 class="faceTitle">We weren't sure about this one  ({{currentFaceIndex + 1}}/{{faceGroupLength + 1}})</h1>
+        <div *ngIf="!face.isIdentified && !face.userUnsure">
+            <h1 class="faceTitle">We weren't sure about this one. ({{currentFaceIndex + 1}}/{{faceGroupLength + 1}})</h1>
         </div>
         <div *ngIf="face.isIdentified && !face.userConfirmed">
-            <h1 class="faceTitle">We're pretty sure this is {{face.firstName}} {{face.lastName}}. Please confirm.  ({{currentFaceIndex + 1}}/{{faceGroupLength + 1}})</h1>
+            <h1 class="faceTitle">We're pretty sure this is {{face.fullName}}. Please confirm. ({{currentFaceIndex + 1}}/{{faceGroupLength + 1}})</h1>
         </div>
         <div *ngIf="face.userConfirmed">
-            <h1 class="faceTitle">You've confirmed that this is {{face.firstName}} {{face.lastName}}. ({{currentFaceIndex + 1}}/{{faceGroupLength + 1}})</h1>
+            <h1 class="faceTitle">You've confirmed that this is {{face.fullName}}. ({{currentFaceIndex + 1}}/{{faceGroupLength + 1}})</h1>
         </div>
+        <div *ngIf="face.userUnsure">
+          <h1 class="faceTitle">You've said you're not sure who this is. ({{currentFaceIndex + 1}}/{{faceGroupLength + 1}})</h1>
+      </div>
         <h1></h1>
     </div>
 
@@ -26,15 +29,10 @@
         <div fxLayout="row"  fxLayoutAlign="center">
             <div class="example-form">
                 <mat-form-field class="example-full-width" appearance="fill">
-                  <mat-label>First Name</mat-label>
-                  <input matInput [(ngModel)]="firstName" [name]="firstName">
+                  <mat-label>Full Name</mat-label>
+                  <input matInput [(ngModel)]="fullName" [name]="fullName">
                 </mat-form-field>
-
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>Last Name</mat-label>
-                    <input matInput [(ngModel)]="lastName" [name]="lastName">
-                  </mat-form-field>
-                </div>
+            </div>
         </div>
     <br/>
         <div fxLayout="row"  fxLayoutAlign="center">
@@ -49,5 +47,5 @@
                     Must enter a name to identify
                   </mat-chip>
             </mat-chip-list>
-        </div>
+          </div>
 </div>

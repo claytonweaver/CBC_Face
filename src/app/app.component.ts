@@ -1,7 +1,12 @@
 import { Input } from '@angular/core';
 import { Component } from '@angular/core';
+import { Credentials } from './models/credentials';
 import { FaceGroup } from './models/face-group';
+import { CredentialResponse } from './services/credential-service/credential-response';
 import { FaceService } from './services/face-service/face-service';
+import { FaceServiceConverter } from './services/face-service/face-service-converter';
+import { Attendance } from './services/face-service/models/attendance';
+import { ServiceDates } from './services/face-service/models/service-dates';
 
 @Component({
   selector: 'app-root',
@@ -10,13 +15,17 @@ import { FaceService } from './services/face-service/face-service';
 })
 export class AppComponent {
 
-  constructor(){
+  constructor(public faceService: FaceService){
 
   }
+  attendance: Attendance;
+  credentials: Credentials = null;
   email: string;
-  serviceDate: Date; 
+  serviceDate: Date;
+  servicesDates: ServiceDates;
+  faceGroup: FaceGroup = null;
 
-  faceGroup: FaceGroup = {
+  /* faceGroup: FaceGroup = {
     faces: [
       {
         faceId: "1234",
@@ -60,16 +69,22 @@ export class AppComponent {
       },
     ],
     date: new Date()
+  } */
+
+  credentialsEntered(credentials: Credentials){
+    console.log('working');
+    this.credentials = credentials;
+    this.email = credentials.email;
   }
 
-  emailEntered(email: string){
-    this.email = email;
-  }
-
-  serviceDateSelected(serviceDate: Date){
+  async serviceDateSelected(serviceDate: Date){
     this.serviceDate = serviceDate;
+    const attendance = await this.faceService.getAttendance(serviceDate, "MorningWorship");
+    console.log(attendance);
+    this.faceGroup = FaceServiceConverter.convertAttendanceToFaceGroup(attendance);
+    console.log(this.faceGroup);
   }
 
-  ngOnInit(){ 
+  ngOnInit(){
   }
 }

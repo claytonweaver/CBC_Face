@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Credentials } from '../models/credentials';
 
 @Component({
   selector: 'app-welcome-screen',
@@ -6,13 +7,13 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./welcome-screen.component.css']
 })
 export class WelcomeScreenComponent implements OnInit {
-  @Output() emailEntered: EventEmitter<string> = new EventEmitter<string>();
+  @Output() enteredCredentials: EventEmitter<Credentials> = new EventEmitter<Credentials>();
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  enterEmail(email: string){
-    this.emailEntered.emit(email);
+  credentialsEntered(credential: Credentials){
+    this.enteredCredentials.emit(credential);
   }
 }

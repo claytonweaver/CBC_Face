@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ServiceDates } from '../services/face-service/models/service-dates';
 
 @Component({
   selector: 'app-service-select',
@@ -7,8 +8,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class ServiceSelectComponent implements OnInit {
   serviceDate: Date;
-  @Output() serviceDateSelected: EventEmitter<Date> = new EventEmitter<Date>()
-
+  @Output() serviceDateSelected: EventEmitter<Date> = new EventEmitter<Date>();
   constructor() { }
 
   ngOnInit(): void {

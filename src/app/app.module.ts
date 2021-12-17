@@ -19,12 +19,12 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WelcomeScreenComponent } from './welcome-screen/welcome-screen.component';
-import { EmailInputComponent } from './email-input/email-input.component';
+import { CredentialInputComponent } from './credential-input/credential-input.component';
 import { HeaderComponent } from './header/header.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {HttpClientModule} from '@angular/common/http';
 
-FlexLayoutModule 
+FlexLayoutModule
 
 @NgModule({
   declarations: [
@@ -33,7 +33,7 @@ FlexLayoutModule
     FacesViewComponent,
     ServiceSelectComponent,
     WelcomeScreenComponent,
-    EmailInputComponent,
+    CredentialInputComponent,
     HeaderComponent
   ],
   imports: [

@@ -15,10 +15,9 @@ export class FaceViewComponent implements OnInit {
   @Output() faceIdentified: EventEmitter<Face> = new EventEmitter<Face>();
   @Output() goBack: EventEmitter<number> = new EventEmitter<number>();
   @Output() goNext: EventEmitter<number> = new EventEmitter<number>();
-  firstName: string = null;
-  lastName: string = null;
+  fullName: string = null;
   showEmptyFieldsError: boolean = false;
-  
+
   @HostListener('document:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
     if(event.key.toLowerCase() == "arrowleft"){
@@ -31,24 +30,25 @@ export class FaceViewComponent implements OnInit {
       this.identify();
     }
   }
-  
-  constructor() { 
+
+  constructor() {
   }
 
   identify(){
-    if(!this.firstName || !this.lastName){
+    if(!this.fullName){
       this.showEmptyFieldsError = true;
     }
     else
     {
-      this.face.firstName = this.firstName; 
-      this.face.lastName = this.lastName; 
+      this.face.fullName = this.fullName;
       this.showEmptyFieldsError = false;
       this.faceIdentified.emit(this.face);
-    }    
+    }
   }
 
   unsure(){
+    this.face.isIdentified = false;
+    this.face.userConfirmed = false;
     this.face.userUnsure = true;
     this.next();
   }
@@ -70,13 +70,11 @@ export class FaceViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.firstName = this.face.firstName;
-    this.lastName = this.face.lastName;
+    this.fullName = this.face.fullName;
     this.showEmptyFieldsError = false;
   }
 
   ngOnChanges(){
-    this.firstName = this.face.firstName;
-    this.lastName = this.face.lastName;
+    this.fullName = this.face.fullName;
   }
 }

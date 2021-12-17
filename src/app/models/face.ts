@@ -3,11 +3,10 @@ import { User } from "./user";
 export class Face {
     faceId: string;
     isIdentified: boolean;
-    firstName: string;
-    lastName: string;
+    fullName: string;
     isMember: boolean;
     pictureUrl: string;
-    userConfirmed: boolean;
+    userConfirmed: boolean = false;
     confirmedBy?: User;
-    userUnsure?: boolean;
+    userUnsure: boolean = false;
 }

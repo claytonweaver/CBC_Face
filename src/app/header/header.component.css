@@ -10,6 +10,11 @@
     flex: 1 1 auto;
   }
 
-  .toolBarText {
+.toolBarText {
     padding: 0 14px;
+  }
+
+  ::selection {
+    background: #673ab7;
+    color: white;
   }
