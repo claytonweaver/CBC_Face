@@ -2,11 +2,11 @@
         <form class="example-form">
                 <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Email</mat-label>
-                        <input 
-                        matInput 
-                        placeholder="email@gmail.com" 
-                        [(ngModel)]="email" 
-                        name="myEmail" 
+                        <input
+                        matInput
+                        placeholder="email@gmail.com"
+                        [(ngModel)]="email"
+                        name="myEmail"
                         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                         required
                         style="width: 400px !important"
@@ -16,6 +16,3 @@
         <button mat-raised-button color="green" (click)="enter()">Enter</button>
 
 </div>
-
-<img src={{imageUrl}}>
-<p>{{imageUrl}}</p>
