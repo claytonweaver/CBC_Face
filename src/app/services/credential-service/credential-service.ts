@@ -13,8 +13,7 @@ export class CredentialService{
   }
 
   getTokenFromCredentials(email: string, password: string){
-      // email=jweaver@cbctrenton.com&password=cbc3700Benson
-      const paramOptions = `email=${email}&password=${'cbc3700Benson'}`; //fixme: fix this password
+      const paramOptions = `email=${email}&password=${password}`; //fixme: fix this password
       const params = new HttpParams({fromString: paramOptions});
       const headers = new HttpHeaders({
           'Access-Control-Allow-Origin': 'http://localhost:4200',
