@@ -1,26 +1,27 @@
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Injectable, isDevMode } from '@angular/core';
-import { environment } from "src/environments/environment";
 import { CredentialResponse } from "./credential-response";
-
+import { SimpleCrypto } from "simple-crypto-js"
+import { CryptoService } from "../crypto-service/crypto.service";
 @Injectable({
   providedIn: 'root',
 })
-export class CredentialService{
-  rootPath = "https://66rc7oiw94.execute-api.us-east-2.amazonaws.com/Prod/api/auth";
+export class CredentialService {
+  rootPath = "internal-cbc-token-218115782.us-east-2.elb.amazonaws.com";
 
-  constructor(public httpClient: HttpClient){
+  constructor(private httpClient: HttpClient, private cryptoService: CryptoService) {
   }
 
-  getTokenFromCredentials(email: string, password: string){
-      const paramOptions = `email=${email}&password=${password}`; //fixme: fix this password
-      const params = new HttpParams({fromString: paramOptions});
-      const headers = new HttpHeaders({
-          'Access-Control-Allow-Origin': 'http://localhost:4200',
-          'Access-Control-Allow-Credentials': 'true',
-          'Accept': '*/*',
+  public async getTokenFromCredentials(email: string, password: string) {
+    var tokenKey = this.cryptoService.encrypt(email + password);
 
-      });
-      return this.httpClient.request<CredentialResponse>( 'GET', this.rootPath, {responseType: 'json', headers: headers, params: params, }).toPromise();
+    const headers = new HttpHeaders({
+      'Access-Control-Allow-Origin': 'http://localhost:4200',
+      'Access-Control-Allow-Credentials': 'true',
+      'Accept': '*/*',
+      'tokenKey': tokenKey
+
+    });
+    const tokenValue = await this.httpClient.request<string>('GET', this.rootPath, { responseType: 'json', headers: headers, }).toPromise();
   }
 }
