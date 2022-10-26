@@ -32,4 +32,4 @@ jobs:
 
       - name: Deploy
         if: success()
-        run: aws s3 sync ./dist/angular-github-actions-amazon-s3 s3://cbc-face-ui
+        run: aws s3 sync ./dist/CbcFace s3://cbc-face-ui
